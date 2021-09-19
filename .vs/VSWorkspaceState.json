@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\C#withC++_Template",
-    "\\C#withC++_Template\\Using_C++",
-    "\\C#withC++_Template\\Using_C++\\Sort"
+    "\\C#withC++_Template\\Using_C++\\Sort",
+    "\\CodeForces_solutions",
+    "\\CodeForces_solutions\\779A"
   ],
-  "SelectedNode": "\\C#withC++_Template\\Using_C++\\Sort\\Insert_Sort.cpp",
+  "SelectedNode": "\\CodeForces_solutions\\779A\\solution.cpp",
   "PreviewInSolutionExplorer": false
 }
