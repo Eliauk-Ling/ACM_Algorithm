@@ -4,11 +4,11 @@
 
 一元线性回归 + 岭回归
 
-$Loss(x) = \frac{1}{2}\sum^{N}_{i=1}(\theta_0+\theta_1x_i-y_i)^2 + \sum^{2}_{i=1}\theta_i^2$
+$$Loss(x) = \frac{1}{2}\sum^{N}_{i=1}(\theta_0+\theta_1x_i-y_i)^2 + \sum^{2}_{i=1}\theta_i^2$$
 
 求偏导后：
 
-$\nabla Loss = (\sum^{N}_{i=1}(\theta_0+\theta_1x_i-y_i) + 2\theta_0,\sum^{N}_{i=1}(\theta_0+\theta_1x_i-y_i)x_i + 2\theta_1)$
+$$\nabla Loss = (\sum^{N}_{i=1}(\theta_0+\theta_1x_i-y_i) + 2\theta_0,\sum^{N}_{i=1}(\theta_0+\theta_1x_i-y_i)x_i + 2\theta_1)$$
 
 ## 要求
 
