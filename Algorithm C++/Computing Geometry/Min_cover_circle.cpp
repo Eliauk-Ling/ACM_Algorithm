@@ -27,7 +27,7 @@ Circle get_circle(Point a, Point b, Point c) {
 	);
 }
 
-// vector<Point> pÎªÊäÈëµãµÄ¼¯ºÏ
+// vector<Point> p ä¸ºè¾“å…¥ç‚¹çš„é›†åˆ
 
 Circle min_covering_circle(std::vector<Point>& p) {
 	std::random_shuffle(p.begin(), p.end());
