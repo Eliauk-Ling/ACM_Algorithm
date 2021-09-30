@@ -1,6 +1,8 @@
 #include <algorithm>
 #include <cmath>
 
+/*Has been checked*/
+
 const double PI = acos(-1.0);
 
 typedef struct Point {
@@ -12,6 +14,7 @@ typedef struct Point {
         x = a;
         y = b;
         z = c;
+
     }
     Point operator -(const Point& b)const {    
         return Point(x - b.x, y - b.y, z - b.z);

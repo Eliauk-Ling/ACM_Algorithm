@@ -7,9 +7,9 @@
  *
  * 由于此算法为概率算法，因此是存在误判的，误判的概率为 1/4^T
  * 因此当T较大时可视为完备算法
- *
- * 需要头文件 #include <cmath>
  **/
+#include <cmath>
+/*Has been checked*/
 typedef long long ll;
 
 const ll MOD = 1e9 + 7;

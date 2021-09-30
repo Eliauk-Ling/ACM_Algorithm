@@ -4,6 +4,7 @@
 * 所以就写一下费马小定理的方法了
 */
 #include <algorithm>
+/*Has been checked*/
 
 typedef long long ll;
 const ll MOD = 1e9 + 7;

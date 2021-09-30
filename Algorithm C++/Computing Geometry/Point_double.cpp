@@ -28,7 +28,7 @@ typedef Point Vector;
 Point operator + (Point a, Point b) {
 	return Point(a.x + b.x, a.y + b.y);
 }
-Point operator - (Point a, Point a) {
+Point operator - (Point a, Point b) {
 	return Point(a.x - b.x, a.y - b.y);
 }
 Point operator *(Point a, double t) {

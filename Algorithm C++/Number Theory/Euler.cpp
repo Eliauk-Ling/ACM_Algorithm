@@ -2,6 +2,7 @@
 * 欧拉筛求素数 或 求一个数的因子个数
 */
 #include <vector>
+/*Has been checked*/
 
 typedef long long ll;
 const int N = 1e5 + 10;

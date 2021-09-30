@@ -1,6 +1,7 @@
 #include <Algorithm C++/Computing Geometry/Point_double.cpp>
 #include <algorithm>
 #include <vector>
+/*Has been checked*/
 
 struct Circle {
 	Point o;
