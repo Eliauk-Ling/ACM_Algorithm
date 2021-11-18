@@ -1,87 +1,89 @@
 #include <Algorithm C++/Computing Geometry/Point_double.cpp>
-#include <vector>
 #include <algorithm>
- 
+#include <vector>
+
 struct Line {
-	Point p1, p2;
-	double a, b, c;
-	Line(double x1 = 1, double x2 = -1, double x3 = 0) {
-		a = x1.b = x2, c = x3;
-	}
-	Line(const Point& x1, const Point& x2) {
-		p1 = x1, p2 = x2;
-		a = x1.y - x2.y;
-		b = x2.x - x1.x;
-		c = x1.y * (x1.x - x2.x) - x1.x * (x1.y - x2.y);
-	}
+    Point p1, p2;
+    double a, b, c;
+    Line(double x1 = 1, double x2 = -1, double x3 = 0) { a = x1, b = x2, c = x3; }
+    Line(const Point& x1, const Point& x2) {
+        p1 = x1, p2 = x2;
+        a = x1.y - x2.y;
+        b = x2.x - x1.x;
+        c = x1.y * (x1.x - x2.x) - x1.x * (x1.y - x2.y);
+    }
 };
 
-
-//  ≈–∂œ¡ΩÃıœﬂ∂Œ «∑Òœ‡Ωª
+//  Âà§Êñ≠‰∏§Êù°Á∫øÊÆµÊòØÂê¶Áõ∏‰∫§
 
 bool iscross(Line l1, Line l2) {
-	Point a = l1.p1, b = l1.p2;
-	Point c = l2.p1, d = l2.p2;
-	if (sgn(cross(b - 1, c - a) * cross(b - 1, d - a)) < 0
-		&& sgn(cross(c - d, c - a) * cross(c - d, c - b)) < 0)
-		return true;
-	return false;
+    Point a = l1.p1, b = l1.p2;
+    Point c = l2.p1, d = l2.p2;
+    if (sgn(cross(b - 1, c - a) * cross(b - 1, d - a)) < 0 &&
+        sgn(cross(c - d, c - a) * cross(c - d, c - b)) < 0)
+        return true;
+    return false;
 }
 
-// º∆À„∂‡±ﬂ–Œ√Êª˝
+// ËÆ°ÁÆóÂ§öËæπÂΩ¢Èù¢ÁßØ
 
 double calc_area(std::vector<Point>& p) {
-	double sum = 0;
-	for (int i = 0; i < p.size(); i++) {
-		i != p.size() - 1 ? sum += cross(p[i], p[i + 1]) : sum += cross(p[p.size() - 1], p[0]);
-	}
-	sum /= 2;
-	return fabs(sum);
+    double sum = 0;
+    for (int i = 0; i < p.size(); i++) {
+        i != p.size() - 1 ? sum += cross(p[i], p[i + 1])
+            : sum += cross(p[p.size() - 1], p[0]);
+    }
+    sum /= 2;
+    return fabs(sum);
 }
 
-// ≈–∂œµ„ «∑Ò‘⁄∂‡±ﬂ–Œƒ⁄≤ø
+// Âà§Êñ≠ÁÇπÊòØÂê¶Âú®Â§öËæπÂΩ¢ÂÜÖÈÉ®
 
 std::vector<Point> pol;
 
 bool is_on_segment(Point a, Point b, Point p) {
-	if (sgn(cross(a - p, b - p)) == 0 && sgn(dot(a - p, b - p)) <= 0)return true;
-	return false;
+    if (sgn(cross(a - p, b - p)) == 0 && sgn(dot(a - p, b - p)) <= 0) return true;
+    return false;
 }
 
 bool is_in_polygon(Point p) {
-	bool flag = 0;
-	Point p1, p2;
-	for (int i = 0; j = pol.size() - 1; i < pol.size(); j = i++) {
-		p1 = pol[i], p2 = pol[j];
-		if (is_on_segment(p1, p2, p))return true;
-		if (sgn(p1.y - p.y) > 0 != sgn(p2.y - p.y) > 0 &&
-			sgn(p.x - (p.y - p1.y) * (p1.x - p2.x) / (p1.y - p2.y) - p1.x) < 0)
-			flag = !flag;
-	}
-	return flag;
+    bool flag = 0;
+    Point p1, p2;
+    for (int i = 0, j = pol.size() - 1; i < pol.size(); j = i++) {
+        p1 = pol[i], p2 = pol[j];
+        if (is_on_segment(p1, p2, p)) return true;
+        if (sgn(p1.y - p.y) > 0 != sgn(p2.y - p.y) > 0 &&
+            sgn(p.x - (p.y - p1.y) * (p1.x - p2.x) / (p1.y - p2.y) - p1.x) < 0)
+            flag = !flag;
+    }
+    return flag;
 }
 
-//¡Ωœﬂ∂Œº‰µƒ◊Ó∂Ãæ‡¿Î
+//‰∏§Á∫øÊÆµÈó¥ÁöÑÊúÄÁü≠Ë∑ùÁ¶ª
 
 int judge_dir(Point a, Point b, Point c) {
-	Vector v1 = b - a, v2 = c - a;
-	if (cross(v1, v2) < -EPS)return -1;		//À≥ ±’Î
-	else if (cross(v1, v2) > EPS)return 1;		//ƒÊ ±’Î
-	else if (dot(v1, v2) < 0)return -2;		//∑¥œÚ—”≥§œﬂ
-	else if (dot(v1, v2) >= 0) {
-		if (sgn(norm(v1) - norm(v2)) == 0)return 2;		//—”≥§œﬂ
-		return 0;		//‘⁄œﬂ…œ
-	}
+    Vector v1 = b - a, v2 = c - a;
+    if (cross(v1, v2) < -EPS)return -1;		//È°∫Êó∂Èíà
+    else if (cross(v1, v2) > EPS)return 1;		//ÈÄÜÊó∂Èíà
+    else if (dot(v1, v2) < 0)return -2;		//ÂèçÂêëÂª∂ÈïøÁ∫ø
+    else if (dot(v1, v2) >= 0) {
+        if (sgn(norm(v1) - norm(v2)) == 0)return 2;		//Âª∂ÈïøÁ∫ø
+        return 0;		//Âú®Á∫ø‰∏ä
+    }
 }
 
 double calc_dis(Point a, Point b, Point c) {
-	Vector v1 = a - b, v2 = a - c;
-	if (dot(v1, v2) < 0)return norm(v2);
-	else if (dot(v1, v2) >= norm(v1))return norm(v1 - v2);
-	else return cross(v1, v2) / norm(v1);
+    Vector v1 = a - b, v2 = a - c;
+    if (dot(v1, v2) < 0)
+        return norm(v2);
+    else if (dot(v1, v2) >= norm(v1))
+        return norm(v1 - v2);
+    else
+        return cross(v1, v2) / norm(v1);
 }
 
 double min_dis(Point a, Point b, Point c, Point d) {
-	return
-		std::min(std::min(std::min(calc_dis(a, b, c), calc_dis(a, b, d)), calc_dis(c, d, a)), calc_dis(c, d, b));
+    return std::min(std::min(std::min(calc_dis(a, b, c), calc_dis(a, b, d)),
+        calc_dis(c, d, a)),
+        calc_dis(c, d, b));
 }

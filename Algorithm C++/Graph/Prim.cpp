@@ -1,5 +1,5 @@
 /**
-* Ê¹ÓÃÁÚ½Ó¾ØÕó´æÍ¼
+* ä½¿ç”¨é‚»æŽ¥çŸ©é˜µå­˜å›¾
 */
 #include <algorithm>
 #include <vector>
@@ -7,7 +7,7 @@
 
 const int N = 1e5 + 10;
 const int INF = 0x3f3f3f3f;
-int dis[N], n, m;	//nÎª¶¥µãÊý£¬mÎª±ßÊý
+int dis[N], n, m;	//nä¸ºé¡¶ç‚¹æ•°ï¼Œmä¸ºè¾¹æ•°
 bool vis[N];
 int prim(std::vector<std::vector<int> >& g) {
 	memset(vis, 0, sizeof vis);
@@ -20,7 +20,7 @@ int prim(std::vector<std::vector<int> >& g) {
 				temp = j;
 		}
 		vis[temp] = 1;
-		if (i && (dis[temp] == INF))return INF;		//Î´Á¬Í¨
+		if (i && (dis[temp] == INF))return INF;		//æœªè¿žé€š
 		if (i)
 			res += dis[temp];
 		for (int j = 1; j <= n; j++)

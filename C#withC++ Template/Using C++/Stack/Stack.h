@@ -17,7 +17,6 @@ public:
 	T top() const;
 	bool empty() const;
 	unsigned int size() const;
-
 private:
 	std::vector<T> data;
 };

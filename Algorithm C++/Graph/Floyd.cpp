@@ -1,5 +1,5 @@
 /**
-* 使用邻接矩阵存图，其中dis[i][j]表示结点i到j的距离
+* 浣跨敤閭绘帴鐭╅樀瀛樺浘
 */
 #include <algorithm>
 
@@ -16,7 +16,7 @@ void init() {
 	}
 }
 
-void floyd() {		//若i与j不相邻，则dis[i][j] = INF; 若i==j，则dis[i][j]=0;
+void floyd() {		
 	for (int k = 1; k <= n; k++) {
 		for (int i = 1; i <= n; i++) {
 			for (int j = 1; j <= n; j++) {

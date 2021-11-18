@@ -1,6 +1,6 @@
 /**
-* dijkstra最短路 + heap优化
-* 采用链式前向星存图
+* dijkstra + heap
+* Has been checked
 */
 
 #include <cstring>
